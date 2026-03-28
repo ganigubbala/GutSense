@@ -1,0 +1,10 @@
+{
+  "name": "GutSense - Gut Health Tracker",
+  "short_name": "GutSense",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#22c55e",
+  "description": "Track your gut health with AI",
+  "icons": []
+}
