@@ -1,0 +1,216 @@
+<svg width="1440" height="834" viewBox="0 0 1440 834" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,BlinkMacSystemFont,sans-serif">
+
+  <!-- App bg -->
+  <rect width="1440" height="834" fill="#111827"/>
+
+  <!-- LEFT SIDEBAR -->
+  <rect x="0" y="0" width="178" height="834" fill="#1a202c"/>
+  <line x1="178" y1="0" x2="178" y2="834" stroke="#374151" stroke-width="1"/>
+
+  <!-- Logo -->
+  <text x="14" y="33" font-size="22">🌿</text>
+  <text x="42" y="27" fill="#f9fafb" font-size="14" font-weight="700">GutSense</text>
+  <text x="42" y="42" fill="#6b7280" font-size="10">AI Health Tracker</text>
+
+  <!-- User -->
+  <rect x="8" y="54" width="162" height="46" rx="8" fill="#064e3b" opacity="0.4"/>
+  <circle cx="27" cy="77" r="13" fill="#22c55e"/>
+  <text x="27" y="82" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">G</text>
+  <text x="47" y="73" fill="#f3f4f6" font-size="12" font-weight="600">Ganesh</text>
+  <text x="47" y="88" fill="#f97316" font-size="11">🔥 1 day streak</text>
+
+  <!-- Nav -->
+  <rect x="8" y="112" width="162" height="36" rx="8" fill="#22c55e"/>
+  <text x="24" y="135" fill="#fff" font-size="13">💬</text>
+  <text x="44" y="135" fill="#fff" font-size="13" font-weight="600">Chat</text>
+
+  <rect x="8" y="154" width="162" height="36" rx="8" fill="transparent"/>
+  <text x="24" y="177" fill="#9ca3af" font-size="13">📊</text>
+  <text x="44" y="177" fill="#9ca3af" font-size="13">Dashboard</text>
+
+  <rect x="8" y="196" width="162" height="36" rx="8" fill="transparent"/>
+  <text x="24" y="219" fill="#9ca3af" font-size="13">🎯</text>
+  <text x="44" y="219" fill="#9ca3af" font-size="13">Goals</text>
+
+  <!-- Bottom sidebar -->
+  <text x="24" y="796" fill="#9ca3af" font-size="12">☀️ Light mode</text>
+  <text x="24" y="818" fill="#ef4444" font-size="12">🚪 Logout</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- MAIN CHAT AREA -->
+  <rect x="178" y="0" width="1060" height="834" fill="#111827"/>
+
+  <!-- Previous message (user) -->
+  <rect x="700" y="30" width="420" height="42" rx="14" fill="#22c55e"/>
+  <text x="716" y="56" fill="#fff" font-size="13">Analyse this food image 📷</text>
+  <circle cx="1136" cy="51" r="14" fill="#16a34a"/>
+  <text x="1136" y="56" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">G</text>
+  <text x="1118" y="84" fill="#6b7280" font-size="10">10:58</text>
+
+  <!-- Image preview in chat -->
+  <rect x="700" y="96" width="420" height="220" rx="14" fill="#22c55e"/>
+
+  <!-- Simulated food photo — biryani style -->
+  <rect x="714" y="108" width="392" height="196" rx="8" fill="#78350f"/>
+  <!-- Rice grains pattern -->
+  <ellipse cx="760" cy="160" rx="30" ry="12" fill="#fef3c7" opacity="0.7"/>
+  <ellipse cx="820" cy="145" rx="25" ry="10" fill="#fde68a" opacity="0.6"/>
+  <ellipse cx="880" cy="170" rx="35" ry="14" fill="#fef3c7" opacity="0.7"/>
+  <ellipse cx="950" cy="148" rx="28" ry="11" fill="#fde68a" opacity="0.6"/>
+  <ellipse cx="1010" cy="165" rx="32" ry="13" fill="#fef3c7" opacity="0.7"/>
+  <ellipse cx="790" cy="200" rx="40" ry="16" fill="#fde68a" opacity="0.5"/>
+  <ellipse cx="860" cy="215" rx="30" ry="12" fill="#fef3c7" opacity="0.6"/>
+  <ellipse cx="930" cy="195" rx="36" ry="15" fill="#fde68a" opacity="0.5"/>
+  <ellipse cx="990" cy="210" rx="30" ry="12" fill="#fef3c7" opacity="0.6"/>
+  <!-- Meat/chicken pieces -->
+  <ellipse cx="810" cy="175" rx="18" ry="14" fill="#92400e"/>
+  <ellipse cx="900" cy="185" rx="22" ry="16" fill="#78350f"/>
+  <ellipse cx="970" cy="170" rx="18" ry="13" fill="#92400e"/>
+  <!-- Spices/saffron color -->
+  <ellipse cx="840" cy="155" rx="50" ry="8" fill="#f59e0b" opacity="0.3"/>
+  <ellipse cx="960" cy="195" rx="40" ry="7" fill="#f59e0b" opacity="0.25"/>
+  <!-- Mint garnish -->
+  <ellipse cx="760" cy="220" rx="20" ry="8" fill="#166534" opacity="0.8"/>
+  <ellipse cx="1020" cy="175" rx="16" ry="7" fill="#166534" opacity="0.7"/>
+  <!-- Onion slices -->
+  <ellipse cx="1060" cy="210" rx="24" ry="10" fill="#fca5a5" opacity="0.6"/>
+  <ellipse cx="740" cy="190" rx="20" ry="9" fill="#fca5a5" opacity="0.5"/>
+
+  <!-- AI scanning overlay effect -->
+  <rect x="714" y="108" width="392" height="196" rx="8" fill="#22c55e" opacity="0.08"/>
+  <!-- Scan line animation look -->
+  <rect x="714" y="180" width="392" height="2" fill="#22c55e" opacity="0.6"/>
+  <!-- Corner markers -->
+  <rect x="714" y="108" width="30" height="3" fill="#22c55e"/>
+  <rect x="714" y="108" width="3" height="30" fill="#22c55e"/>
+  <rect x="1076" y="108" width="30" height="3" fill="#22c55e"/>
+  <rect x="1103" y="108" width="3" height="30" fill="#22c55e"/>
+  <rect x="714" y="301" width="30" height="3" fill="#22c55e"/>
+  <rect x="714" y="274" width="3" height="30" fill="#22c55e"/>
+  <rect x="1076" y="301" width="30" height="3" fill="#22c55e"/>
+  <rect x="1103" y="274" width="3" height="30" fill="#22c55e"/>
+
+  <!-- Analyzing label on image -->
+  <rect x="840" y="290" width="130" height="22" rx="11" fill="#111827" opacity="0.85"/>
+  <text x="905" y="305" text-anchor="middle" fill="#22c55e" font-size="11" font-weight="600">✓ Analysed by Gemini</text>
+
+  <text x="700" y="332" fill="#6b7280" font-size="10">10:58</text>
+
+  <!-- AI response bubble -->
+  <circle cx="210" cy="374" r="16" fill="#1f2937"/>
+  <text x="210" y="379" text-anchor="middle" font-size="16">🌿</text>
+
+  <rect x="236" y="350" width="820" height="290" rx="14" fill="#1f2937"/>
+  <line x1="236" y1="350" x2="236" y2="640" stroke="#374151" stroke-width="1"/>
+  <line x1="236" y1="350" x2="1056" y2="350" stroke="#374151" stroke-width="1"/>
+  <line x1="1056" y1="350" x2="1056" y2="640" stroke="#374151" stroke-width="1"/>
+  <line x1="236" y1="640" x2="1056" y2="640" stroke="#374151" stroke-width="1"/>
+
+  <!-- AI response text -->
+  <text x="256" y="378" fill="#d1d5db" font-size="13" font-weight="600">I can see: Chicken Biryani 🍛</text>
+
+  <text x="256" y="406" fill="#d1d5db" font-size="12">That's a flavourful choice! Biryani is calorie-dense and moderately heavy on the gut due to</text>
+  <text x="256" y="424" fill="#d1d5db" font-size="12">the spices and oil. Here's what I detected and logged to your tracker:</text>
+
+  <!-- Food detection cards -->
+  <rect x="256" y="436" width="230" height="72" rx="10" fill="#111827"/>
+  <rect x="256" y="436" width="230" height="72" rx="10" fill="none" stroke="#374151" stroke-width="1"/>
+  <text x="272" y="456" fill="#f9fafb" font-size="12" font-weight="600">🍛 Chicken Biryani</text>
+  <text x="272" y="474" fill="#9ca3af" font-size="11">Quantity: 1 plate (approx 350g)</text>
+  <text x="272" y="490" fill="#9ca3af" font-size="11">Type: Lunch</text>
+  <rect x="272" y="498" width="60" height="18" rx="9" fill="#422006"/>
+  <text x="302" y="511" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="600">62/100</text>
+  <text x="342" y="511" fill="#9ca3af" font-size="11">~650 kcal</text>
+
+  <rect x="498" y="436" width="200" height="72" rx="10" fill="#111827"/>
+  <rect x="498" y="436" width="200" height="72" rx="10" fill="none" stroke="#374151" stroke-width="1"/>
+  <text x="514" y="456" fill="#f9fafb" font-size="12" font-weight="600">🧅 Fried Onions</text>
+  <text x="514" y="474" fill="#9ca3af" font-size="11">Quantity: garnish</text>
+  <text x="514" y="490" fill="#9ca3af" font-size="11">Type: Lunch</text>
+  <rect x="514" y="498" width="60" height="18" rx="9" fill="#422006"/>
+  <text x="544" y="511" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="600">55/100</text>
+  <text x="584" y="511" fill="#9ca3af" font-size="11">~80 kcal</text>
+
+  <rect x="710" y="436" width="200" height="72" rx="10" fill="#111827"/>
+  <rect x="710" y="436" width="200" height="72" rx="10" fill="none" stroke="#374151" stroke-width="1"/>
+  <text x="726" y="456" fill="#f9fafb" font-size="12" font-weight="600">🌿 Mint Garnish</text>
+  <text x="726" y="474" fill="#9ca3af" font-size="11">Quantity: small</text>
+  <text x="726" y="490" fill="#9ca3af" font-size="11">Type: Lunch</text>
+  <rect x="726" y="498" width="60" height="18" rx="9" fill="#064e3b"/>
+  <text x="756" y="511" text-anchor="middle" fill="#34d399" font-size="11" font-weight="600">88/100</text>
+  <text x="796" y="511" fill="#9ca3af" font-size="11">~5 kcal</text>
+
+  <!-- Risk level + advice -->
+  <rect x="256" y="520" width="780" height="38" rx="8" fill="#422006" opacity="0.5"/>
+  <text x="272" y="544" fill="#fb923c" font-size="12">⚠️  Risk level: Medium — Heavy spices may irritate sensitive guts. Pair with plain curd/raita to soothe digestion.</text>
+
+  <!-- Footer of bubble -->
+  <text x="256" y="578" fill="#d1d5db" font-size="12">All 3 foods have been logged to your meal tracker! 🌿</text>
+
+  <!-- Action buttons -->
+  <text x="238" y="652" fill="#6b7280" font-size="10">10:58 · Copy · ↺ Retry</text>
+
+  <!-- INPUT BAR -->
+  <rect x="186" y="776" width="1044" height="50" rx="12" fill="#1f2937"/>
+  <rect x="186" y="776" width="1044" height="50" rx="12" fill="none" stroke="#374151" stroke-width="1"/>
+  <text x="210" y="806" fill="#6b7280" font-size="18">📷</text>
+  <text x="240" y="806" fill="#4b5563" font-size="13">Tell me what you ate...</text>
+  <rect x="1172" y="784" width="50" height="34" rx="9" fill="#22c55e"/>
+  <text x="1197" y="806" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Send</text>
+
+  <text x="720" y="834" text-anchor="middle" fill="#4b5563" font-size="11">Enter to send · Shift+Enter for new line · 📷 to upload food photo for AI analysis</text>
+
+  <!-- RIGHT SIDEBAR -->
+  <rect x="1238" y="0" width="202" height="834" fill="#1a202c"/>
+  <line x1="1238" y1="0" x2="1238" y2="834" stroke="#374151" stroke-width="1"/>
+
+  <!-- Streak banner -->
+  <rect x="1238" y="0" width="202" height="38" fill="#431407"/>
+  <text x="1252" y="24" fill="#fb923c" font-size="11" font-weight="600">🔥 1 day streak — keep it up!</text>
+
+  <!-- Water -->
+  <text x="1252" y="58" fill="#e5e7eb" font-size="12" font-weight="600">💧 Water today</text>
+  <text x="1252" y="80" fill="#60a5fa" font-size="24" font-weight="700">0</text>
+  <text x="1278" y="80" fill="#6b7280" font-size="12">/ 5 glasses</text>
+
+  <!-- Water bars -->
+  <rect x="1252" y="88" width="30" height="6" rx="3" fill="#374151"/>
+  <rect x="1286" y="88" width="30" height="6" rx="3" fill="#374151"/>
+  <rect x="1320" y="88" width="30" height="6" rx="3" fill="#374151"/>
+  <rect x="1354" y="88" width="30" height="6" rx="3" fill="#374151"/>
+  <rect x="1388" y="88" width="30" height="6" rx="3" fill="#374151"/>
+
+  <rect x="1252" y="102" width="88" height="28" rx="7" fill="#1f2937"/>
+  <rect x="1252" y="102" width="88" height="28" rx="7" fill="none" stroke="#374151" stroke-width="1"/>
+  <text x="1296" y="121" text-anchor="middle" fill="#9ca3af" font-size="16">−</text>
+  <rect x="1348" y="102" width="80" height="28" rx="7" fill="#3b82f6"/>
+  <text x="1388" y="121" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">+ Glass</text>
+
+  <!-- Today -->
+  <line x1="1238" y1="140" x2="1440" y2="140" stroke="#374151"/>
+  <text x="1252" y="160" fill="#e5e7eb" font-size="12" font-weight="600">📋 Today</text>
+
+  <rect x="1252" y="168" width="82" height="54" rx="8" fill="#1f2937"/>
+  <text x="1293" y="192" text-anchor="middle" fill="#fb923c" font-size="22" font-weight="700">62</text>
+  <text x="1293" y="210" text-anchor="middle" fill="#6b7280" font-size="10">Gut score</text>
+
+  <rect x="1344" y="168" width="82" height="54" rx="8" fill="#1f2937"/>
+  <text x="1385" y="192" text-anchor="middle" fill="#e5e7eb" font-size="22" font-weight="700">1</text>
+  <text x="1385" y="210" text-anchor="middle" fill="#6b7280" font-size="10">Meals</text>
+
+  <!-- Meals -->
+  <line x1="1238" y1="232" x2="1440" y2="232" stroke="#374151"/>
+  <text x="1252" y="252" fill="#e5e7eb" font-size="12" font-weight="600">🍽️ Today's meals</text>
+  <text x="1410" y="252" fill="#22c55e" font-size="11" font-weight="500">+ Add</text>
+
+  <rect x="1252" y="260" width="172" height="52" rx="8" fill="#1f2937"/>
+  <text x="1264" y="278" fill="#e5e7eb" font-size="11" font-weight="500">Chicken Biryani</text>
+  <rect x="1264" y="284" width="60" height="18" rx="9" fill="#422006"/>
+  <text x="1294" y="297" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="600">62/100</text>
+  <text x="1334" y="297" fill="#6b7280" font-size="10">1 plate</text>
+
+  <!-- Clear -->
+  <line x1="1238" y1="790" x2="1440" y2="790" stroke="#374151"/>
+  <text x="1339" y="814" text-anchor="middle" fill="#6b7280" font-size="11">🗑️ Clear chat history</text>
+
+</svg>
