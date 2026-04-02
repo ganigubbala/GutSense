@@ -23,6 +23,50 @@
 
 ---
 
+## 📸 Screenshots
+
+### 💬 AI Chat — Talk to log your meals
+![Chat](assets:chat.png)
+
+> Just describe what you ate in plain language. The AI extracts every food item, calculates a gut health score, flags trigger foods, and logs everything to MongoDB — no forms, no searching, no manual input.
+
+---
+
+### 📷 Food Image Recognition — Photograph your meal, AI does the rest
+![Food Recognition](assets:food-recognition.svg)
+
+> Upload any food photo and Gemini Vision API identifies every item on the plate, estimates portion sizes and calories, assigns individual gut health scores, and logs all entries automatically. Zero typing required.
+
+---
+
+### 📊 Analytics Dashboard — See your gut health trends
+![Dashboard](assets:dashboard.png)
+
+> Real-time charts powered by MongoDB aggregation pipelines. Switch between 7, 14, or 30-day views. Export your full weekly report as a PDF with one click.
+
+---
+
+### 📊 Dashboard — Weekly Summary
+![Dashboard Weekly](assets:dashboard1.png)
+
+> This week's gut health summary — average score, meals logged, days tracked, best and worst foods all in one view.
+
+---
+
+### 🎯 Daily Goals — Set targets, track progress
+![Goals](assets:goals.png)
+
+> Set your daily water, meal, calorie, and fiber goals with sliders. Add foods to your avoid list and the AI will warn you in real-time when you log them. Progress bars update live throughout the day.
+
+---
+
+### 📄 PDF Export — Weekly Health Report
+![PDF Export](exportpdf.png)
+
+> One-click export of your full weekly health report — gut score summary, meals grouped by day, water intake history, best and worst foods. Opens a formatted print window ready to save as PDF.
+
+---
+
 ## 🧠 What makes this different
 
 Most food trackers make you search a database and manually fill in calories. GutSense works differently — you just **talk to it**.
@@ -108,16 +152,15 @@ res.cookie("gut_token", token, {
 ```
 
 ```js
-// Rate limiting — brute force protection
+// Rate limiting — brute force protection on auth routes
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,   // 15 minutes
   max: 10,                     // 10 attempts max
-  message: { message: "Too many login attempts." }
 });
 ```
 
 ```js
-// NoSQL injection blocked
+// NoSQL injection blocked on every request
 app.use(mongoSanitize());
 // Strips { email: { $gt: "" } } attacks from all request bodies
 ```
@@ -129,219 +172,6 @@ app.use(mongoSanitize());
 | Injection | `express-mongo-sanitize` | NoSQL operator injection |
 | Auth | `httpOnly cookie + JWT` | XSS token theft |
 | Passwords | `bcryptjs` (12 rounds) | Rainbow table attacks |
-
----
-
-## 📊 API Reference
-
-All protected routes require `Authorization: Bearer <token>` header or the `gut_token` httpOnly cookie.
-
-### Auth
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `POST` | `/api/auth/register` | ❌ | Register new user, sets httpOnly cookie |
-| `POST` | `/api/auth/login` | ❌ | Login, sets httpOnly cookie |
-| `POST` | `/api/auth/logout` | ❌ | Clears cookie |
-| `GET` | `/api/auth/me` | ✅ | Get current user |
-
-### Meals
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `GET` | `/api/meals` | ✅ | Today's meals |
-| `GET` | `/api/meals/history?days=7` | ✅ | Historical meals |
-| `POST` | `/api/meals` | ✅ | Manual meal log |
-| `DELETE` | `/api/meals/:id` | ✅ | Delete a meal |
-
-### Chat & AI
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `POST` | `/api/chat/send` | ✅ | Send message or image to Gemini |
-| `GET` | `/api/chat/history` | ✅ | Chat history |
-| `DELETE` | `/api/chat/clear` | ✅ | Clear chat |
-
-### Analytics & Goals
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| `GET` | `/api/analytics/dashboard?days=7` | ✅ | Charts data (aggregation pipeline) |
-| `GET` | `/api/analytics/weekly-report` | ✅ | Weekly summary |
-| `GET` | `/api/goals` | ✅ | Get user goals |
-| `PUT` | `/api/goals` | ✅ | Update goals |
-| `GET` | `/api/water/today` | ✅ | Today's water intake |
-| `POST` | `/api/water/add` | ✅ | Log a glass of water |
-| `GET` | `/api/report/export` | ✅ | Weekly PDF report data |
-
----
-
-## 🧪 Testing
-
-**46 tests** across 5 suites covering the full API surface.
-
-```bash
-cd backend && npm test
-```
-
-```
- PASS  __tests__/auth.test.js
-  POST /api/auth/register
-    ✓ registers a new user and returns token + user object
-    ✓ sets an httpOnly cookie on register
-    ✓ rejects registration when email already exists
-    ✓ rejects registration with missing fields
-    ✓ rejects registration with password shorter than 6 characters
-    ✓ stores email in lowercase regardless of input casing
-    ✓ does not store plain-text password in database
-
- PASS  __tests__/meals.test.js
-    ✓ logs a meal and returns it with a gut score
-    ✓ gives healthy foods a higher gut score than junk food
-    ✓ flags a trigger food when it matches user avoid list
-    ✓ only returns meals belonging to the requesting user
-    ✓ returns 404 when deleting another user's meal
-
- PASS  __tests__/security.test.js
-    ✓ blocks NoSQL injection in login email field
-    ✓ blocks NoSQL injection in register email field
-    ✓ GET /api/meals returns 401 without token
-    ✓ GET /api/analytics/dashboard returns 401 without token
-    ✓ includes security headers from helmet
-    ✓ rejects a tampered JWT token
-
- PASS  __tests__/goals.test.js
- PASS  __tests__/water.test.js
-
-Test Suites: 5 passed, 5 total
-Tests:       46 passed, 46 total
-```
-
----
-
-## ⚡ Quick Start
-
-**Prerequisites:** Node.js 18+, MongoDB running locally (or Atlas URI)
-
-```bash
-# 1. Clone
-git clone https://github.com/yourusername/gutsense-ai.git
-cd gutsense-ai
-
-# 2. Backend
-cd backend
-npm install
-cp .env.example .env
-# → Edit .env: add MONGO_URI, JWT_SECRET, GEMINI_API_KEY
-npm run dev
-# ✅ Server → http://localhost:5001
-# ✅ Health  → http://localhost:5001/api/health
-
-# 3. Frontend (new terminal)
-cd frontend
-npm install
-npm run dev
-# ✅ App → http://localhost:5173
-
-# 4. Tests
-cd backend && npm test
-```
-
-**Get a Gemini API key (free):** https://aistudio.google.com/app/apikey
-
----
-
-## 🌍 Deploy to Production
-
-This project ships with a `render.yaml` for one-command deployment.
-
-```bash
-# 1. Push to GitHub
-# 2. Go to render.com → New → Blueprint
-# 3. Connect your repo — Render reads render.yaml automatically
-# 4. Set env vars in Render dashboard:
-#    MONGO_URI, JWT_SECRET, GEMINI_API_KEY
-```
-
-Backend deploys as a Node.js web service. Frontend deploys as a static site with SPA rewrite rules. Both services are defined in `render.yaml`.
-
----
-
-## 📁 Project Structure
-
-```
-gutsense-ai/
-│
-├── .github/
-│   └── workflows/ci.yml          # GitHub Actions — runs tests on every push
-│
-├── render.yaml                   # One-click Render.com deployment
-│
-├── backend/
-│   ├── __tests__/
-│   │   ├── auth.test.js          # 12 tests — register, login, JWT, cookies
-│   │   ├── meals.test.js         # 10 tests — CRUD, gut score, user isolation
-│   │   ├── goals.test.js         #  6 tests — defaults, updates, injection guard
-│   │   ├── water.test.js         #  5 tests — increment, decrement, floor
-│   │   └── security.test.js      # 13 tests — NoSQL injection, 401s, headers
-│   │
-│   ├── middleware/
-│   │   └── auth.js               # JWT guard (reads cookie OR Bearer header)
-│   │
-│   ├── models/
-│   │   ├── User.js               # bcrypt pre-save hook, matchPassword method
-│   │   ├── Meal.js               # compound index { user, eatenAt }
-│   │   ├── Goal.js               # per-user goals, syncs to triggerFoods
-│   │   ├── Water.js              # daily water log { user, date } unique index
-│   │   └── Chat.js               # chat history with food entries embedded
-│   │
-│   ├── routes/
-│   │   ├── auth.js               # register, login, logout, /me
-│   │   ├── meals.js              # CRUD + gut score heuristic
-│   │   ├── goals.js              # goals CRUD + avoidFoods → triggerFoods sync
-│   │   ├── analytics.js          # MongoDB aggregation pipelines
-│   │   ├── chat.js               # Gemini chat + Vision API integration
-│   │   ├── water.js              # daily water intake tracker
-│   │   └── report.js             # weekly PDF report data
-│   │
-│   └── server.js                 # helmet, rate limiters, mongo-sanitize, routes
-│
-└── frontend/
-    └── src/
-        ├── context/AuthContext.jsx   # global auth state + refreshUser
-        ├── hooks/useChat.js          # chat state, meal sync, streak, manual log
-        ├── utils/api.js              # axios instance with interceptors
-        └── pages/
-            ├── Chat.jsx              # AI chat + image upload + sidebar
-            ├── Dashboard.jsx         # Recharts analytics + PDF export
-            ├── Goals.jsx             # sliders, progress bars, avoid foods
-            ├── Login.jsx
-            └── Register.jsx
-```
-
----
-
-## 🛠 Tech Stack
-
-**Frontend**
-- React 18 + Vite
-- Tailwind CSS
-- Recharts (line, bar, pie charts)
-- React Router v6
-- Axios
-
-**Backend**
-- Node.js + Express
-- MongoDB + Mongoose
-- JWT (`jsonwebtoken`) + `bcryptjs`
-- `helmet` + `express-rate-limit` + `express-mongo-sanitize`
-- `cookie-parser`
-
-**AI**
-- Google Gemini 1.5 Flash — conversational food parsing
-- Google Gemini Vision API — food image recognition
-
-**Testing & DevOps**
-- Jest + Supertest
-- GitHub Actions CI
-- Render.com (`render.yaml`)
-- PWA Web App Manifest
 
 ---
 
@@ -363,7 +193,7 @@ User message: "had dal chawal for lunch and aam panna"
               ]
                             │
               Backend strips FOOD_LOG from reply,
-              parses it, checks against triggerFoods,
+              checks against user triggerFoods,
               calculates gut score, saves to MongoDB
                             │
               Frontend shows clean AI reply +
@@ -372,13 +202,156 @@ User message: "had dal chawal for lunch and aam panna"
 
 ---
 
+## 📊 API Reference
+
+| Method | Endpoint | Auth | Description |
+|---|---|---|---|
+| `POST` | `/api/auth/register` | ❌ | Register, sets httpOnly cookie |
+| `POST` | `/api/auth/login` | ❌ | Login, sets httpOnly cookie |
+| `POST` | `/api/auth/logout` | ❌ | Clears cookie |
+| `GET` | `/api/auth/me` | ✅ | Current user |
+| `GET` | `/api/meals` | ✅ | Today's meals |
+| `POST` | `/api/meals` | ✅ | Manual meal log |
+| `DELETE` | `/api/meals/:id` | ✅ | Delete meal |
+| `POST` | `/api/chat/send` | ✅ | AI chat + image analysis |
+| `GET` | `/api/chat/history` | ✅ | Chat history |
+| `GET` | `/api/analytics/dashboard?days=7` | ✅ | Charts data |
+| `GET` | `/api/analytics/weekly-report` | ✅ | Weekly summary |
+| `GET` | `/api/goals` | ✅ | User goals |
+| `PUT` | `/api/goals` | ✅ | Update goals |
+| `POST` | `/api/water/add` | ✅ | Log a glass |
+| `GET` | `/api/report/export` | ✅ | PDF report data |
+
+---
+
+## 🧪 Testing
+
+**46 tests** across 5 suites covering the full API surface.
+
+```bash
+cd backend && npm test
+```
+
+```
+ PASS  __tests__/auth.test.js
+    ✓ registers a new user and returns token + user object
+    ✓ sets an httpOnly cookie on register
+    ✓ rejects duplicate email registration
+    ✓ does not store plain-text password in database
+
+ PASS  __tests__/meals.test.js
+    ✓ logs a meal and returns it with a gut score
+    ✓ gives healthy foods a higher gut score than junk food
+    ✓ flags a trigger food when it matches user avoid list
+    ✓ only returns meals belonging to the requesting user
+    ✓ returns 404 when deleting another user's meal
+
+ PASS  __tests__/security.test.js
+    ✓ blocks NoSQL injection in login email field
+    ✓ GET /api/meals returns 401 without token
+    ✓ GET /api/analytics/dashboard returns 401 without token
+    ✓ includes security headers from helmet
+    ✓ rejects a tampered JWT token
+
+ PASS  __tests__/goals.test.js
+ PASS  __tests__/water.test.js
+
+Test Suites: 5 passed, 5 total
+Tests:       46 passed, 46 total
+```
+
+---
+
+## ⚡ Quick Start
+
+**Prerequisites:** Node.js 18+, MongoDB running locally or Atlas URI
+
+```bash
+# 1. Clone
+git clone https://github.com/ganigubbala/GutSense.git
+cd GutSense
+
+# 2. Backend
+cd backend
+npm install
+cp .env.example .env
+# → Edit .env: add MONGO_URI, JWT_SECRET, GEMINI_API_KEY
+npm run dev
+# ✅ Server  → http://localhost:5001
+# ✅ Health  → http://localhost:5001/api/health
+
+# 3. Frontend (new terminal)
+cd frontend
+npm install
+npm run dev
+# ✅ App → http://localhost:5173
+
+# 4. Run tests
+cd backend && npm test
+```
+
+**Get a free Gemini API key:** https://aistudio.google.com/app/apikey
+
+---
+
+## 🌍 Deploy to Render (free)
+
+```bash
+# 1. Push to GitHub
+# 2. render.com → New → Blueprint → connect repo
+# 3. Render reads render.yaml automatically
+# 4. Set env vars in dashboard: MONGO_URI, JWT_SECRET, GEMINI_API_KEY
+```
+
+---
+
+## 📁 Project Structure
+
+```
+gutsense-ai/
+├── .github/workflows/ci.yml     # GitHub Actions CI
+├── render.yaml                  # Render.com deploy config
+│
+├── backend/
+│   ├── __tests__/
+│   │   ├── auth.test.js         # 12 tests
+│   │   ├── meals.test.js        # 10 tests
+│   │   ├── goals.test.js        #  6 tests
+│   │   ├── water.test.js        #  5 tests
+│   │   └── security.test.js     # 13 tests
+│   ├── middleware/auth.js        # JWT (cookie + Bearer)
+│   ├── models/                  # User, Meal, Goal, Water, Chat
+│   ├── routes/                  # 7 route modules, 15 endpoints
+│   └── server.js                # helmet, rate limit, sanitize
+│
+└── frontend/
+    └── src/
+        ├── context/AuthContext.jsx
+        ├── hooks/useChat.js
+        ├── utils/api.js
+        └── pages/               # Chat, Dashboard, Goals, Login, Register
+```
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend** — React 18, Vite, Tailwind CSS, Recharts, React Router v6, Axios
+
+**Backend** — Node.js, Express, MongoDB, Mongoose, JWT, bcryptjs, helmet, express-rate-limit, express-mongo-sanitize
+
+**AI** — Google Gemini 1.5 Flash (chat) · Gemini Vision API (image recognition)
+
+**DevOps** — Jest, Supertest, GitHub Actions CI, Render.com, PWA Manifest
+
+---
+
 ## 📈 What I'd add next
 
 - [ ] Push notifications when streak is about to break
-- [ ] Food database integration (Open Food Facts API) for accurate calories
-- [ ] Doctor/nutritionist report sharing via email
+- [ ] Open Food Facts API integration for accurate calorie data
+- [ ] Doctor report sharing via email (Nodemailer)
 - [ ] React Native mobile app (Expo)
-- [ ] Redis caching for analytics queries
 
 ---
 
@@ -386,6 +359,6 @@ User message: "had dal chawal for lunch and aam panna"
 
 **Built with ❤️ and too much chai**
 
-If this project helped you, consider giving it a ⭐
+If this project helped you, drop a ⭐ — it means a lot!
 
 </div>
