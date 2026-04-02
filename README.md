@@ -26,42 +26,42 @@
 ## 📸 Screenshots
 
 ### 💬 AI Chat — Talk to log your meals
-![Chat](assets:chat.png)
+<img src="https://raw.githubusercontent.com/ganigubbala/GutSense/main/assets%3Achat.png" alt="Chat" width="100%"/>
 
 > Just describe what you ate in plain language. The AI extracts every food item, calculates a gut health score, flags trigger foods, and logs everything to MongoDB — no forms, no searching, no manual input.
 
 ---
 
 ### 📷 Food Image Recognition — Photograph your meal, AI does the rest
-![Food Recognition](assets:food-recognition.svg)
+<img src="https://raw.githubusercontent.com/ganigubbala/GutSense/main/assets%3Afood-recognition.svg" alt="Food Recognition" width="100%"/>
 
 > Upload any food photo and Gemini Vision API identifies every item on the plate, estimates portion sizes and calories, assigns individual gut health scores, and logs all entries automatically. Zero typing required.
 
 ---
 
 ### 📊 Analytics Dashboard — See your gut health trends
-![Dashboard](assets:dashboard.png)
+<img src="https://raw.githubusercontent.com/ganigubbala/GutSense/main/assets%3Adashboard.png" alt="Dashboard" width="100%"/>
 
 > Real-time charts powered by MongoDB aggregation pipelines. Switch between 7, 14, or 30-day views. Export your full weekly report as a PDF with one click.
 
 ---
 
 ### 📊 Dashboard — Weekly Summary
-![Dashboard Weekly](assets:dashboard1.png)
+<img src="https://raw.githubusercontent.com/ganigubbala/GutSense/main/assets%3Adashboard1.png" alt="Dashboard Weekly" width="100%"/>
 
 > This week's gut health summary — average score, meals logged, days tracked, best and worst foods all in one view.
 
 ---
 
 ### 🎯 Daily Goals — Set targets, track progress
-![Goals](assets:goals.png)
+<img src="https://raw.githubusercontent.com/ganigubbala/GutSense/main/assets%3Agoals.png" alt="Goals" width="100%"/>
 
 > Set your daily water, meal, calorie, and fiber goals with sliders. Add foods to your avoid list and the AI will warn you in real-time when you log them. Progress bars update live throughout the day.
 
 ---
 
 ### 📄 PDF Export — Weekly Health Report
-![PDF Export](exportpdf.png)
+<img src="https://raw.githubusercontent.com/ganigubbala/GutSense/main/assets%3Aexportpdf.png" alt="PDF Export" width="100%"/>
 
 > One-click export of your full weekly health report — gut score summary, meals grouped by day, water intake history, best and worst foods. Opens a formatted print window ready to save as PDF.
 
