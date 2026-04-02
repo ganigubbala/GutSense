@@ -46,13 +46,6 @@
 
 ---
 
-### 📊 Dashboard — Weekly Summary
-<img src="https://raw.githubusercontent.com/ganigubbala/GutSense/main/assets%3Adashboard1.png" alt="Dashboard Weekly" width="100%"/>
-
-> This week's gut health summary — average score, meals logged, days tracked, best and worst foods all in one view.
-
----
-
 ### 🎯 Daily Goals — Set targets, track progress
 <img src="https://raw.githubusercontent.com/ganigubbala/GutSense/main/assets%3Agoals.png" alt="Goals" width="100%"/>
 
